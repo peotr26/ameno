@@ -12,3 +12,10 @@ Ceci est un projet GitHub mené par deux élèves de seconde visant à recréer 
 
 
 *Pourquoi ameno ? Pourquoi des noms de sortilèges de Harry Potter ? POURQUOI UN EMOJI ';)' ??!*
+
+CDC:
+- [ ] faire une canvas avec un nombre de celule variable
+- [ ] faire des bouton pause, recomenser
+- [ ] un curseur avec la vitese 
+- [ ] une sorte de menue déroulent avec les diférent modéle de base
+  
