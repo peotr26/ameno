@@ -1,4 +1,5 @@
-# ameno
+# jeux de la vie par WIDZ et maxanimaor
+## ameno
 
 ceci est un git-hub de projet étudian qui vise a faire un jeux de la vit
 
@@ -6,7 +7,7 @@ ceci est un git-hub de projet étudian qui vise a faire un jeux de la vit
 
 
 
-# Version Française ;)
+## Version Française ;)
 
 Ceci est un projet GitHub mené par deux élèves de seconde visant à recréer le jeu de la vie (Conway's Game of Life) en python.
 
@@ -15,7 +16,7 @@ Ceci est un projet GitHub mené par deux élèves de seconde visant à recréer 
 
 ----------
 
-CDC:
+## CDC:
 - [ ] faire une canvas avec un nombre de celule variable
 - [ ] faire des bouton pause, recomenser
 - [ ] un curseur avec la vitese 
