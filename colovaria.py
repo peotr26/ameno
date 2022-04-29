@@ -17,30 +17,36 @@ CamX = 0
 '''Camera X position'''
 CamY = 0
 '''Camera Y position'''
-CamW = 40
+CamW = 400
 '''Camera Width, or X size'''
-CamH = 40
+CamH = 400
 '''Camera Height, or Y size'''
 
 CellSize = 10
 '''The size of each cell. May be modified at moment, it will be taken into account the next frame.'''
 
-World = lumos.lumos(8,8,4)
+World = lumos.lumos(64,64,4)
 
 
 gol = tk.Canvas(win, width=400,height=400, highlightthickness=0, bg="black") #bd=-2
 gol.pack()
 
 def colovaria():
-    global World
+    global World, CamX, CamY, CamW, CamH
     #World = [[0,0,0,0],[0,1,1,0],[0,1,1,0],[0,0,0,0]]
-    View = World[int(CamX/CellSize):int(CamX/CellSize)+int(CamW/CellSize), int(CamY/CellSize):int(CamY/CellSize)+int(CamH/CellSize)]
-    print(View, "\n")
+    View = World[int(CamX/CellSize):int(CamX/CellSize)+int(CamW/CellSize*2), int(CamY/CellSize):int(CamY/CellSize)+int(CamH/CellSize*2)]
+    #View = World
+    print(View, "\n", CamX, CamY, int(CamX/CellSize), int(CamY/CellSize), "\n")
+    gol.create_rectangle(0,0,CamW,CamH,fill="black")
+
     for cx in range(len(View)):
         # watch out for this: 'cx in World' gives cx the value of the currently targeted element, whereas 'cx in range(len(World))' gives cx the value of the index of the currently targeted element, so that it acts as "it should", or rather as "I expect it to". This way cx refers to the number of iterations, and World[cx] returns the value corresponding to this index. (also 'len()' is used, I get why but I'll do some testing to see what happens without it, someday I'll do it, I swear)                   *no*
         for cy in range(len(View[cx])):
             if View[cx][cy] == 1:
-                gol.create_rectangle(cx*CellSize,cy*CellSize,cx*CellSize+10,cy*CellSize+10, fill="white")
+                gol.create_rectangle(cx*CellSize-CamX,cy*CellSize-CamY,cx*CellSize-CamX+10,cy*CellSize-CamY+10, fill="white")
+            else:
+                gol.create_rectangle(cx*CellSize-CamX,cy*CellSize-CamY,cx*CellSize-CamX+10,cy*CellSize-CamY+10, fill="black")
+    #gol.update()
 
 
 
@@ -50,10 +56,10 @@ def left():
     CamX -= 5
 def up():
     global CamY
-    CamY += 5
+    CamY -= 5
 def down():
     global CamY
-    CamY -= 5
+    CamY += 5
 def right():
     global CamX
     CamX += 5
